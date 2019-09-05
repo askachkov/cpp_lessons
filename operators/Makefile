@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES=main.cpp
+SOURCES=main.cpp complex.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=executable.exe
 
