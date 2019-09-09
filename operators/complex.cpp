@@ -1,5 +1,6 @@
 #include "complex.hpp"
 
+//function prototypes was reviewed in hpp
 
 Complex& Complex::operator =(const Complex& obj)
 {
@@ -54,10 +55,10 @@ Complex Complex::operator --(int)
 
 bool Complex::operator ==(const Complex& obj)
 {
-	if ((obj.m_real == m_real) || (obj.m_imag == m_imag))
-		return true;
-	return false;
-
+// 	if ((obj.m_real == m_real) || (obj.m_imag == m_imag))
+// 		return true;
+// 	return false;
+	return obj.m_real == m_real && obj.m_imag == m_imag; // && ?
 }
 
 bool Complex::operator !=(const Complex& obj)
@@ -67,6 +68,13 @@ bool Complex::operator !=(const Complex& obj)
 
 bool Complex::operator >(const Complex& obj)
 {
+	//комплексные числа нельзя сравнивать на больше/меньше; 
+	//доказано, что нет способа распространить порядок, заданный
+	//для вещественных чисел, на все комплексные так, чтобы 
+	//порядок был согласован с арифметическими операциями 
+	//Однако комплексные числа можно сравнивать на равно/не равно
+	
+	//As example - OK
 	if ((obj.m_real + obj.m_imag) > (m_real + m_imag))
 	{
 		return true;
@@ -76,7 +84,10 @@ bool Complex::operator >(const Complex& obj)
 
 bool Complex::operator <(const Complex& obj)
 {
-	return !this->operator>(obj);
+	// no no ) It return true is a==b
+	//return !this->operator>(obj);
+	//In case if complex numbers can be comparable = should be
+	return (obj.m_real + obj.m_imag) < (m_real + m_imag);
 }
 
 Complex::operator int()
@@ -119,6 +130,7 @@ int Complex::imag() const
 	return m_imag;
 }
 
+//this prototype must be definedin cpp file.
 std::ostream& operator<<(std::ostream &os, Complex const &cmpx)
 {
 	return os << "\nReal:\t" << cmpx.real() <<"\nImag:\t" << cmpx.imag() << std::endl;
