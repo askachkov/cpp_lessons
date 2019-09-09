@@ -123,3 +123,16 @@ std::ostream& operator<<(std::ostream &os, Complex const &cmpx)
 {
 	return os << "\nReal:\t" << cmpx.real() <<"\nImag:\t" << cmpx.imag() << std::endl;
 }
+
+
+Complex* Complex::operator->()
+{
+	Complex *t = new Complex(0,0);
+	return t;
+}
+
+void Complex::set(int real, int imag)
+{
+	m_real = real;
+	m_imag = imag;
+}
