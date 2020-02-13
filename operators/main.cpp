@@ -14,5 +14,23 @@ int main(int argc, char *argv[])
 
 	std::cout << pA->real() << std::endl;
 
+	Complex a,b(2,3),c;
+
+	std::cout << a;
+
+	int b_real = b[0];
+
+	std::cout << std::endl << b_real << std::endl;
+
+	const Complex g(5,6);
+	int b_rel = g[1];
+
+	std::cout << std::endl << b_real << std::endl;
+
+	std::cout << b_rel;
+
+	std::cout << g << b;
+
+	std::cout << (g > b) << std::endl;
 	return 0;
 }
